@@ -270,7 +270,7 @@ section .content .section-title {
   align-items: center;
 }
 .second-section .content > div {
-  max-width: clamp(400px, 29vw, 550px);
+  max-width: clamp(400px, 30vw, 550px);
 }
 
 .second-section .sub-text {
@@ -290,13 +290,17 @@ section .content .section-title {
   margin-bottom: clamp(70px, 6.3vw, 100px);
 }
 .card-area {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   align-items: flex-start;
   gap: clamp(20px, 1.3vw, 30px);
+  width: 100%;
   /* height: clamp(289px, 20vw, 357px); */
 }
 .card-wrapper {
   position: relative;
-  width: clamp(230px, 19.5vw, 407px);
+  /* width: clamp(230px, 19.5vw, 407px); */
+  width: 100%;
   padding: clamp(30px, 2.1vw, 43px) clamp(23px, 1.5vw, 32px)
     clamp(42px, 2.9vw, 59px);
   background: linear-gradient(225deg, #ffffff 0%, #e5e7ee 100%);
@@ -435,7 +439,7 @@ section .content .section-title {
   }
 }
 .forth-section .content {
-  padding-top: 239px;
+  padding-top: clamp(200px, 15vw, 282px);
   justify-content: start;
   align-items: center;
 }
@@ -449,13 +453,14 @@ section .content .section-title {
 .forth-section .sub-text {
   max-width: 550px;
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: clamp(70px, 6.3vw, 100px);
 }
 
 .fifth-section .content {
   padding-top: 142px;
   justify-content: start;
   align-items: center;
+  height: auto;
 }
 .fifth-section .section-title {
   max-width: 875px;
@@ -463,11 +468,11 @@ section .content .section-title {
 .fifth-section .sub-text {
   max-width: 550px;
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: clamp(42px, 3.2vw, 60px);
 }
 
 .sixth-section .content {
-  padding-top: 142px;
+  padding-top: clamp(177px, 13vw, 249px);
   justify-content: start;
   align-items: center;
 }
@@ -482,8 +487,9 @@ section .content .section-title {
 .sixth-section .sub-title-1 {
   margin-bottom: 12px;
 }
-.sixth-section .sub-text.main-text-2 {
-  margin-bottom: 91px;
+.sixth-section .sub-text.second-sub-text {
+  /* margin-bottom: clamp(70px, 6.3vw, 100px); */
+  margin-bottom: clamp(64px, 4.8vw, 91px);
 }
 
 .sixth-section .green-box {
@@ -511,7 +517,7 @@ section .content .section-title {
   pointer-events: none;
 }
 .seventh-section .content {
-  padding-top: 160px;
+  padding-top: clamp(113px, 8.4vw, 160px);
   justify-content: start;
   align-items: center;
 }
@@ -525,7 +531,7 @@ section .content .section-title {
   justify-content: end;
   padding: 20px 26px;
   width: clamp(290px, 19.5vw, 407px);
-  height: 444px;
+  height: clamp(315px, 20vw, 444px);
   background: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0) 41.15%,
@@ -617,8 +623,9 @@ section .content .section-title {
   border-radius: 30px;
 }
 .eights-section .content {
-  padding-top: 403px;
-  justify-content: start;
+  /* padding-top: clamp(286px, 21vw, 403px); */
+  /* justify-content: start; */
+  justify-content: center;
   align-items: center;
 }
 .eights-section .section-title {
@@ -627,7 +634,7 @@ section .content .section-title {
 .eights-section .sub-text {
   max-width: 550px;
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: clamp(42px, 3.2vw, 60px);
 }
 .form-wrapper {
   margin-bottom: 70px;
