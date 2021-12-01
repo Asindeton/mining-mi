@@ -244,7 +244,7 @@ section .content .section-title {
   transition: all 0.3s;
   cursor: pointer;
 }
-/* .btn::after {
+/* .btn.shadow::after {
   position: absolute;
   content: "";
   left: 34px;
