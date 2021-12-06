@@ -42,6 +42,9 @@ h3 {
   letter-spacing: 0em;
   text-align: left;
 }
+main {
+  overflow: hidden;
+}
 .sub-title-1 {
   /* styleName: Подзаголовок 1; */
   font-size: clamp(21px, 1.5vw, 30px);
@@ -206,7 +209,7 @@ a.login-wrapper {
 }
 section {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 section .content {
   /* height: 100vh; */
@@ -737,6 +740,9 @@ footer .contact-info div:not(:last-child) {
 .burger-dots {
   display: none;
 }
+.footer-additional-info.mobile {
+  display: none;
+}
 @media screen and (max-width: 1100px) {
   h2 {
     /* styleName: Заголовок h1; */
@@ -857,8 +863,8 @@ footer .contact-info div:not(:last-child) {
   }
   h2 {
     /* styleName: Заголовок h1; */
-    font-size: 68px;
-    line-height: 61px;
+    font-size: clamp(42px, 10vw, 68px);
+    line-height: clamp(50px, 12.1vw, 61px);
   }
   .sub-title-1 {
     /* styleName: Подзаголовок 1; */
@@ -929,6 +935,7 @@ footer .contact-info div:not(:last-child) {
   }
   .login-img-wrapper {
     width: 32px;
+    margin-right: 0;
   }
   .burger-dots span,
   .burger-dots::after,
@@ -956,13 +963,14 @@ footer .contact-info div:not(:last-child) {
     max-width: 550px;
   }
   section .content .section-title {
-    margin-bottom: 30px;
+    margin-bottom: clamp(20px, 4.8vw, 30px);
   }
   .first-section .sub-text {
     margin-bottom: 42px;
   }
   .btn {
     padding: 13px 34px;
+    border-radius: 30px;
   }
   .content .sub-text {
     margin-bottom: 40px;
@@ -974,7 +982,7 @@ footer .contact-info div:not(:last-child) {
     max-width: 550px;
   }
   .third-section .sub-text {
-    margin-bottom: 100px;
+    margin-bottom: clamp(40px, 12vw, 100px);
   }
   .card-wrapper {
     width: 407px;
@@ -1023,7 +1031,7 @@ footer .contact-info div:not(:last-child) {
   }
   .sixth-section .content .sub-text {
     max-width: 553px;
-    margin-bottom: 100px;
+    margin-bottom: clamp(40px, 12vw, 100px);
   }
   .sixth-section .green-box {
     max-width: 553px;
@@ -1036,7 +1044,7 @@ footer .contact-info div:not(:last-child) {
     justify-content: center;
   }
   .seventh-section .content .section-title {
-    margin-bottom: 100px;
+    margin-bottom: clamp(40px, 12vw, 100px);
   }
   .blog-content {
     margin-top: 0;
@@ -1085,5 +1093,81 @@ footer .contact-info div:not(:last-child) {
   section .content {
     /* height: 100vh; */
     height: clamp(568px, 100vh, 896px);
+  }
+  #video-in-first-section {
+    transform: translate(-60%, -10%);
+  }
+  #video-in-second-section {
+    width: 1096px;
+    height: 666px;
+    transform: translate(-4vw, 20vh);
+  }
+  .second-section .content {
+    padding-top: 0;
+    justify-content: center;
+  }
+  .header ul li:not(:first-child) {
+    margin-left: clamp(20px, 7.8vw, 60px);
+  }
+  .header-title {
+    margin-right: 0px;
+  }
+  .card-wrapper {
+    width: 85vw;
+    padding: 45px 15px;
+  }
+  .third-section .sub-text,
+  .sixth-section .content .sub-text,
+  .seventh-section .content .section-title {
+    margin-bottom: clamp(40px, 9vw, 100px);
+  }
+  .sixth-section .sub-title-1 {
+    text-align: center;
+  }
+  .content-form-wrapper {
+    flex-direction: column;
+  }
+  .email-input {
+    margin-right: 0px;
+    margin-bottom: 30px;
+  }
+  .input-wrapper,
+  .content-form-wrapper,
+  .form-wrapper form,
+  .form-wrapper {
+    width: 100%;
+  }
+  .social-link-area {
+    display: none;
+  }
+  footer .wrapper {
+    flex-direction: column;
+  }
+  .footer-info {
+    width: 100%;
+  }
+  .fake {
+    display: none;
+  }
+  .footer-nav-items {
+    flex-grow: 1;
+    max-width: 193px;
+  }
+  .footer-info .flex-column:first-child {
+    margin-right: 30px;
+  }
+  footer .title {
+    margin-bottom: 90px;
+  }
+  .footer-additional-info.mobile {
+    display: block;
+  }
+  .footer-additional-info.desktop-table {
+    display: none;
+  }
+}
+@media screen and (max-width: 400px) {
+  .header ul li:not(:first-child) {
+    margin-left: clamp(10px, 3.8vw, 60px);
   }
 }
