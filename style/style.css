@@ -252,8 +252,9 @@ section .content .section-title {
   height: min-content;
   transition: all 0.3s;
   cursor: pointer;
+  box-shadow: 0px 20px 32px 0px var(--interface-show-active);
 }
-.btn.shadow::after {
+/* .btn.shadow::after {
   position: absolute;
   content: "";
   left: 34px;
@@ -266,7 +267,7 @@ section .content .section-title {
 }
 .btn.green::after {
   background: var(--btn-green-hover);
-}
+} */
 .btn.green {
   background-color: var(--interface-active);
 }
