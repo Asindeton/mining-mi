@@ -1117,6 +1117,11 @@ footer .contact-info div:not(:last-child) {
     width: 85vw;
     padding: 45px 15px;
   }
+  .sixth-section .content,
+  .seventh-section .content {
+    height: 100%;
+    padding: 50px 0px;
+  }
   .third-section .sub-text,
   .sixth-section .content .sub-text,
   .seventh-section .content .section-title {
@@ -1152,7 +1157,7 @@ footer .contact-info div:not(:last-child) {
   }
   .footer-nav-items {
     flex-grow: 1;
-    max-width: 193px;
+    max-width: 170px;
   }
   .footer-info .flex-column:first-child {
     margin-right: 30px;
@@ -1166,9 +1171,105 @@ footer .contact-info div:not(:last-child) {
   .footer-additional-info.desktop-table {
     display: none;
   }
+  .fifth-section .section-title h2 {
+    text-align: center;
+  }
+  footer .login-img-wrapper {
+    margin-bottom: 0px !important;
+    margin-right: 15px;
+  }
 }
 @media screen and (max-width: 400px) {
   .header ul li:not(:first-child) {
     margin-left: clamp(10px, 3.8vw, 60px);
   }
+}
+
+h2,
+.sub-text {
+  opacity: 0 !important;
+  transition: all 0.5s !important;
+  transform: translateY(-20px) !important;
+  transition-delay: 0.2s !important;
+}
+h2.visible,
+.sub-text.visible {
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+}
+.map-wrapper {
+  position: relative;
+}
+.marker {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  background: var(--interface-active);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: all 0.3s;
+  cursor: pointer;
+  box-shadow: inset -1px 4px 4px rgba(0, 0, 0, 0.1);
+}
+.marker.visible {
+  width: clamp(14px, 1.3vw, 20px);
+  height: clamp(14px, 1.3vw, 20px);
+}
+.marker:nth-child(1) {
+  left: 43.2%;
+  top: 14.8%;
+}
+.marker:nth-child(2) {
+  top: 31.4%;
+  left: 61.4%;
+}
+.marker:nth-child(3) {
+  top: 42.5%;
+  left: 62.3%;
+}
+.marker:nth-child(4) {
+  top: 29%;
+  left: 66%;
+}
+.marker:nth-child(5) {
+  top: 34%;
+  left: 84%;
+}
+.marker:nth-child(6) {
+  top: 59%;
+  left: 28%;
+}
+.marker:nth-child(7) {
+  top: 20%;
+  left: 15%;
+}
+.marker.visible::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  padding: 2px;
+  background: linear-gradient(225deg, #e9ecf7 0%, #ffffff 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.marker.visible::before {
+  position: absolute;
+  content: "";
+  width: clamp(4px, 0.6vw, 8px);
+  height: clamp(4px, 0.6vw, 8px);
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s;
+}
+
+.marker.visible:hover::before {
+  background: #ffffff;
 }
