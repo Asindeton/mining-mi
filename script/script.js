@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setObserver(elem, playVideo, { threshold: 0.75 });
   });
   setObserver(map, marketOnMap, { threshold: 0.75 });
+  setEventHandlers();
 });
 
 const setObserver = (elem, callback, options = null) => {
@@ -57,5 +58,26 @@ const marketOnMap = (entries) => {
         }, i * 700);
       }
     }
+  });
+};
+const setEventHandlers = () => {
+  burgerMenuHandler();
+};
+
+const burgerMenuHandler = () => {
+  const burgerDots = document.querySelector(".burger-dots");
+  const body = document.querySelector("body");
+  const portal = document.querySelector(".shadow-portal");
+  const menu = document.querySelector(".mobile-menu");
+  burgerDots.addEventListener("click", function () {
+    body.classList.add("mobile-menu-active");
+    portal.classList.add("active");
+    menu.classList.add("active");
+
+    portal.addEventListener("click", function () {
+      body.classList.remove("mobile-menu-active");
+      portal.classList.remove("active");
+      menu.classList.remove("active");
+    });
   });
 };
