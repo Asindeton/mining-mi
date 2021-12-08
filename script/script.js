@@ -55,13 +55,14 @@ const marketOnMap = (entries) => {
       for (let i = 0; i < markets.length; i++) {
         setTimeout(function () {
           markets[i].classList.add("visible");
-        }, i * 700);
+        }, i * 300);
       }
     }
   });
 };
 const setEventHandlers = () => {
   burgerMenuHandler();
+  btnHoverEffect();
 };
 
 const burgerMenuHandler = () => {
@@ -82,4 +83,18 @@ const burgerMenuHandler = () => {
       });
     })
   );
+};
+
+const btnHoverEffect = () => {
+  const btn = document.querySelectorAll(".all-news");
+  btn.forEach((elem) => {
+    elem.addEventListener("mouseenter", function (e) {
+      this.querySelector("span").style.top = `${e.offsetY}px`;
+      this.querySelector("span").style.left = `${e.offsetX}px`;
+    });
+    elem.addEventListener("mouseout", function (e) {
+      this.querySelector("span").style.top = `${e.offsetY}px`;
+      this.querySelector("span").style.left = `${e.offsetX}px`;
+    });
+  });
 };
