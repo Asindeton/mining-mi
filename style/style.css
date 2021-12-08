@@ -918,12 +918,14 @@ footer .contact-info div:not(:last-child) {
     display: none;
   }
   .burger-dots {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     height: 100%;
     width: 32px;
+    cursor: pointer;
   }
   .login-wrapper .main-text-1-active {
     display: none;
@@ -941,11 +943,19 @@ footer .contact-info div:not(:last-child) {
   .burger-dots span,
   .burger-dots::after,
   .burger-dots::before {
+    position: absolute;
     content: "";
     width: 6px;
     height: 6px;
     background-color: var(--text-main);
     border-radius: 50%;
+    transition: all 0.5s;
+  }
+  .burger-dots::after {
+    top: 0;
+  }
+  .burger-dots::before {
+    bottom: 0;
   }
   .first-section .content {
     padding-top: 0;
@@ -1143,7 +1153,7 @@ footer .contact-info div:not(:last-child) {
   .form-wrapper {
     width: 100%;
   }
-  .social-link-area {
+  footer .social-link-area {
     display: none;
   }
   footer .wrapper {
@@ -1177,6 +1187,24 @@ footer .contact-info div:not(:last-child) {
   footer .login-img-wrapper {
     margin-bottom: 0px !important;
     margin-right: 15px;
+  }
+  .mobile-menu-additional-info {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobile-menu-additional-info .social-link-area {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  .mobile-menu-additional-info .social-link-area div:not(:last-child) {
+    margin-right: 0;
+  }
+  .mobile-menu .main-text-1.tel {
+    text-align: left;
+    width: 100%;
   }
 }
 @media screen and (max-width: 400px) {
@@ -1272,4 +1300,317 @@ h2.visible,
 
 .marker.visible:hover::before {
   background: #ffffff;
+}
+
+.shadow-portal {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all 0.5s;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+.shadow-portal.active {
+  background: rgba(64, 68, 80, 0.36);
+  pointer-events: unset;
+}
+body.mobile-menu-active {
+  overflow: hidden;
+}
+.mobile-menu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  right: -100%;
+  top: 0;
+  width: 65vw;
+  height: 100vh;
+  background: #f4f6f9;
+  box-shadow: 4px 4px 10px rgba(52, 85, 108, 0.14);
+  transition: all 0.5s;
+  padding: 21px 30px 30px;
+}
+.mobile-menu.active {
+  right: 0;
+}
+.mobile-menu .header-nav-list {
+  display: block;
+}
+.mobile-menu .header-nav-list li,
+.mobile-menu .header ul li:not(:first-child) {
+  margin-bottom: 30px;
+  margin-left: 0px !important;
+}
+.mobile-menu .aside-content {
+  margin-bottom: 65px;
+}
+.mobile-menu.active .burger-dots span {
+  transform: scale(0);
+}
+.mobile-menu.active .burger-dots::after {
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  transform: rotate(-45deg);
+  top: 14px;
+}
+.mobile-menu.active .burger-dots::before {
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  transform: rotate(45deg);
+  bottom: 14px;
+}
+.mobile-menu-additional-info {
+  justify-content: space-between;
+  align-items: center;
+}
+.mobile-menu-additional-info .social-link-area {
+  align-items: center;
+}
+.mobile-menu-additional-info .social-link-area div:not(:last-child) {
+  margin-right: 20px;
+}
+
+/* --dashboard-- */
+.panel-wrapper {
+  margin-top: 100px;
+  margin-bottom: 250px;
+}
+.panel-wrapper .menu {
+  width: 330px;
+  margin-right: 20px;
+  height: 100%;
+}
+.panel-wrapper .menu .main-text-2 {
+  margin-bottom: 30px;
+}
+.panel-wrapper .menu .sub-title-3 {
+  margin-bottom: 40px;
+  margin-left: 30px;
+}
+.panel-wrapper .menu .btn {
+  width: 100%;
+  background: #89d971;
+  box-shadow: 4px 4px 6px rgba(63, 123, 35, 0.14),
+    -4px -4px 4px rgba(231, 255, 225, 0.79);
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+.panel-wrapper .info-row {
+  margin-bottom: 20px;
+}
+.panel-wrapper .content.main {
+  width: 100%;
+}
+.panel-wrapper .content.main .info-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.panel-wrapper .content.main .card-wrapper {
+  background: var(--interface-main);
+  box-shadow: 4px 4px 6px rgba(52, 85, 108, 0.14),
+    -4px -4px 4px rgba(255, 255, 255, 0.79);
+  border-radius: 20px;
+  padding: 30px 40px;
+  margin-bottom: 20px;
+}
+.panel-wrapper .content.main .card-wrapper::before,
+.panel-wrapper .content.main .card-wrapper::after {
+  display: none;
+}
+.panel-wrapper .main-money .value {
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.panel-wrapper .main-money .name {
+  margin-bottom: 20px;
+}
+.panel-wrapper .column-2 {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 20px;
+}
+
+.panel-wrapper .table-body .item-wrapper,
+.panel-wrapper .table-head {
+  width: 100%;
+  justify-content: space-between;
+}
+.panel-wrapper .table-body .item-wrapper {
+  background: var(--interface-main);
+  padding: 15px 30px;
+  /* margin-bottom: 20px; */
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.panel-wrapper .table-body hr {
+  border: none;
+  width: calc(100% - 60px);
+  background-color: #dde3eb;
+  color: #dde3eb;
+  height: 1px;
+}
+.panel-wrapper .table-body .item-wrapper:hover {
+  box-shadow: -4px -4px 4px rgba(255, 255, 255, 0.79),
+    4px 4px 6px rgba(52, 85, 108, 0.14);
+  border-radius: 20px;
+}
+.panel-wrapper .table-body .currency-info {
+  align-items: center;
+}
+.panel-wrapper .content.main .card-wrapper.currency-info-board {
+  padding: 30px 10px 40px;
+  /* margin-bottom: 20px; */
+}
+
+.panel-wrapper .content.main .card-wrapper.currency-info-board .logo-wrapper {
+  margin-right: 25px;
+}
+.panel-wrapper .content.main .card-wrapper.currency-info-board .currency-name {
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 31px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.panel-wrapper .content.main .card-wrapper.currency-info-board .currency {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: right;
+  margin-bottom: 5px;
+}
+.panel-wrapper
+  .content.main
+  .card-wrapper.currency-info-board
+  .currency-changes {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: right;
+}
+.panel-wrapper
+  .content.main
+  .card-wrapper.currency-info-board
+  .currency-changes.plus,
+.graph-currency-change.plus {
+  color: var(--text-link);
+}
+.panel-wrapper
+  .content.main
+  .card-wrapper.currency-info-board
+  .currency-changes.minus {
+  color: #ea6767;
+}
+.panel-wrapper .content.main .card-wrapper.currency-info-board .card-title {
+  font-family: Gilroy;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  padding-left: 30px;
+}
+.panel-wrapper .content.main .card-wrapper.currency-info-board .table-head {
+  margin-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.panel-wrapper .content.main .card-wrapper.currency-info-board .btn-link {
+  margin-top: 34px;
+  border: 2px solid #404450;
+  box-sizing: border-box;
+  border-radius: 30px;
+  padding: 14px 34px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  width: max-content;
+}
+.card-graph-info,
+.card-graph-info .flex-column {
+  justify-content: space-between;
+}
+.card-graph-info {
+  margin-bottom: 20px;
+}
+.graph-currency-name {
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.graph-currency-value {
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: right;
+}
+.graph-currency-change {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: right;
+}
+.graph-date {
+  margin-top: 30px;
+  justify-content: space-between;
+  background: #f4f6f9;
+  box-shadow: inset 4px 4px 8px rgba(52, 85, 108, 0.14);
+  border-radius: 30px;
+
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: var(--text-secondary);
+}
+.graph-date > div {
+  padding: 15px 28px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.graph-date > div.active,
+.graph-date > div:hover {
+  color: var(--text-main);
+  background: #f4f6f9;
+  box-shadow: -4px -4px 4px rgba(255, 255, 255, 0.79),
+    4px 4px 6px rgba(52, 85, 108, 0.14);
+  border-radius: 30px;
 }

@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setObserver(elem, playVideo, { threshold: 0.75 });
   });
   setObserver(map, marketOnMap, { threshold: 0.75 });
+  setEventHandlers();
 });
 
 const setObserver = (elem, callback, options = null) => {
@@ -58,4 +59,27 @@ const marketOnMap = (entries) => {
       }
     }
   });
+};
+const setEventHandlers = () => {
+  burgerMenuHandler();
+};
+
+const burgerMenuHandler = () => {
+  const burgerDots = document.querySelectorAll(".burger-dots");
+  const body = document.querySelector("body");
+  const portal = document.querySelector(".shadow-portal");
+  const menu = document.querySelector(".mobile-menu");
+  burgerDots.forEach((elem) =>
+    elem.addEventListener("click", function () {
+      body.classList.toggle("mobile-menu-active");
+      portal.classList.toggle("active");
+      menu.classList.toggle("active");
+
+      portal.addEventListener("click", function () {
+        body.classList.remove("mobile-menu-active");
+        portal.classList.remove("active");
+        menu.classList.remove("active");
+      });
+    })
+  );
 };
