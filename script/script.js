@@ -65,19 +65,21 @@ const setEventHandlers = () => {
 };
 
 const burgerMenuHandler = () => {
-  const burgerDots = document.querySelector(".burger-dots");
+  const burgerDots = document.querySelectorAll(".burger-dots");
   const body = document.querySelector("body");
   const portal = document.querySelector(".shadow-portal");
   const menu = document.querySelector(".mobile-menu");
-  burgerDots.addEventListener("click", function () {
-    body.classList.add("mobile-menu-active");
-    portal.classList.add("active");
-    menu.classList.add("active");
+  burgerDots.forEach((elem) =>
+    elem.addEventListener("click", function () {
+      body.classList.toggle("mobile-menu-active");
+      portal.classList.toggle("active");
+      menu.classList.toggle("active");
 
-    portal.addEventListener("click", function () {
-      body.classList.remove("mobile-menu-active");
-      portal.classList.remove("active");
-      menu.classList.remove("active");
-    });
-  });
+      portal.addEventListener("click", function () {
+        body.classList.remove("mobile-menu-active");
+        portal.classList.remove("active");
+        menu.classList.remove("active");
+      });
+    })
+  );
 };

@@ -918,12 +918,14 @@ footer .contact-info div:not(:last-child) {
     display: none;
   }
   .burger-dots {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     height: 100%;
     width: 32px;
+    cursor: pointer;
   }
   .login-wrapper .main-text-1-active {
     display: none;
@@ -941,11 +943,19 @@ footer .contact-info div:not(:last-child) {
   .burger-dots span,
   .burger-dots::after,
   .burger-dots::before {
+    position: absolute;
     content: "";
     width: 6px;
     height: 6px;
     background-color: var(--text-main);
     border-radius: 50%;
+    transition: all 0.5s;
+  }
+  .burger-dots::after {
+    top: 0;
+  }
+  .burger-dots::before {
+    bottom: 0;
   }
   .first-section .content {
     padding-top: 0;
@@ -1143,7 +1153,7 @@ footer .contact-info div:not(:last-child) {
   .form-wrapper {
     width: 100%;
   }
-  .social-link-area {
+  footer .social-link-area {
     display: none;
   }
   footer .wrapper {
@@ -1177,6 +1187,24 @@ footer .contact-info div:not(:last-child) {
   footer .login-img-wrapper {
     margin-bottom: 0px !important;
     margin-right: 15px;
+  }
+  .mobile-menu-additional-info {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobile-menu-additional-info .social-link-area {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  .mobile-menu-additional-info .social-link-area div:not(:last-child) {
+    margin-right: 0;
+  }
+  .mobile-menu .main-text-1.tel {
+    text-align: left;
+    width: 100%;
   }
 }
 @media screen and (max-width: 400px) {
@@ -1295,6 +1323,9 @@ body.mobile-menu-active {
 }
 .mobile-menu {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   right: -100%;
   top: 0;
   width: 65vw;
@@ -1318,20 +1349,35 @@ body.mobile-menu-active {
 .mobile-menu .aside-content {
   margin-bottom: 65px;
 }
-/* .mobile-menu.active .burger-dots span {
-  display: none;
-} */
-/* .mobile-menu.active .burger-dots::after {
+.mobile-menu.active .burger-dots span {
+  transform: scale(0);
+}
+.mobile-menu.active .burger-dots::after {
   width: 100%;
+  height: 3px;
   border-radius: 3px;
-  transform: translate(50%, 0%) rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 14px;
 }
 .mobile-menu.active .burger-dots::before {
   width: 100%;
+  height: 3px;
   border-radius: 3px;
-  transform: translate(0%, 50%) rotate(45deg);
-} */
-/* dashboard */
+  transform: rotate(45deg);
+  bottom: 14px;
+}
+.mobile-menu-additional-info {
+  justify-content: space-between;
+  align-items: center;
+}
+.mobile-menu-additional-info .social-link-area {
+  align-items: center;
+}
+.mobile-menu-additional-info .social-link-area div:not(:last-child) {
+  margin-right: 20px;
+}
+
+/* --dashboard-- */
 .panel-wrapper {
   margin-top: 100px;
   margin-bottom: 250px;
