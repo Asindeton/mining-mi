@@ -51,7 +51,10 @@ const playVideo = (entries) => {
 const marketOnMap = (entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
+      const map = document.querySelector(".map-wrapper");
       const markets = document.querySelectorAll(".marker");
+      map.classList.add("visible");
+      setMapShadow();
       for (let i = 0; i < markets.length; i++) {
         setTimeout(function () {
           markets[i].classList.add("visible");
@@ -63,6 +66,7 @@ const marketOnMap = (entries) => {
 const setEventHandlers = () => {
   burgerMenuHandler();
   btnHoverEffect();
+  setSlider();
 };
 
 const burgerMenuHandler = () => {
@@ -96,5 +100,73 @@ const btnHoverEffect = () => {
       this.querySelector("span").style.top = `${e.offsetY}px`;
       this.querySelector("span").style.left = `${e.offsetX}px`;
     });
+  });
+};
+
+const setMapShadow = () => {
+  const shadowFilter = document.getElementById("filter0_d_101_2277");
+
+  console.log(shadowFilter.querySelector("feOffset").attributes);
+  console.log(shadowFilter.querySelector("feGaussianBlur").attributes);
+
+  shadowFilter.querySelector("feOffset").attributes.dy.nodeValue = 0;
+  shadowFilter.querySelector(
+    "feGaussianBlur"
+  ).attributes.stdDeviation.nodeValue = 0;
+
+  console.log(shadowFilter.querySelector("feOffset").attributes);
+  console.log(shadowFilter.querySelector("feGaussianBlur").attributes);
+
+  for (let i = 0; i < 25; i++) {
+    setTimeout(function () {
+      shadowFilter.querySelector("feOffset").attributes.dy.nodeValue =
+        new Number(
+          shadowFilter.querySelector("feOffset").attributes.dy.nodeValue
+        ) + 0.1;
+      shadowFilter.querySelector(
+        "feGaussianBlur"
+      ).attributes.stdDeviation.nodeValue =
+        new Number(
+          shadowFilter.querySelector(
+            "feGaussianBlur"
+          ).attributes.stdDeviation.nodeValue
+        ) + 0.1;
+    }, i * 100);
+  }
+};
+
+const setSlider = () => {
+  const sliderArr = document.querySelector(".serves-row");
+
+  new Swiper("#first-line", {
+    init: true,
+    slidesPerView: "auto",
+    centeredSlides: true,
+    loop: true,
+    loopedSlides: 0,
+    slidesPerGroup: 1,
+    spaceBetween: 30,
+    speed: 3000,
+    //allowTouchMove: false, // можно ещё отключить свайп
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false, // или сделать так, чтобы восстанавливался autoplay после взаимодействия
+    },
+  });
+  new Swiper("#second-line", {
+    init: true,
+    slidesPerView: "auto",
+    centeredSlides: true,
+    loop: true,
+    loopedSlides: 0,
+    slidesPerGroup: 1,
+    spaceBetween: 30,
+    speed: 3000,
+    //allowTouchMove: false, // можно ещё отключить свайп
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false, // или сделать так, чтобы восстанавливался autoplay после взаимодействия
+      reverseDirection: true,
+    },
   });
 };
