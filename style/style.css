@@ -1,5 +1,6 @@
 :root {
   --text-main: #404450;
+  --text-main-opacity: #4044505c;
   --text-secondary: #7c7c8c;
   --text-inactive: #b7b7ca;
   --text-link: #6abc00;
@@ -264,11 +265,10 @@ section .content .section-title {
 
 .btn.black {
   background-color: var(--text-main);
-  box-shadow: 0px 20px 32px 0px var(--text-main);
+  box-shadow: 0px 20px 32px 0px var(--text-main-opacity);
 }
 .btn.black:hover {
   background-color: #313542;
-  box-shadow: 0px 20px 32px 0px var(--text-main);
 }
 .second-section .content {
   padding-top: clamp(135px, 10vw, 190px);
