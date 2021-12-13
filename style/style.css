@@ -197,6 +197,7 @@ header {
 .login-wrapper {
   align-items: center;
   color: var(--text-link);
+  cursor: pointer;
 }
 a.login-wrapper {
   color: var(--text-link);
@@ -247,6 +248,7 @@ section .wrapper::before {
     rgba(241, 242, 250, 0) 89.35%,
     #f4f6f9 99.07%
   );
+  pointer-events: none;
 }
 section .content .section-title {
   margin-bottom: clamp(24px, 1.5vw, 30px);
