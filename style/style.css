@@ -30,7 +30,7 @@ h2 {
   font-size: clamp(48px, 4vw, 68px);
   font-style: normal;
   font-weight: 500;
-  line-height: clamp(43px, 3vw, 61px);
+  line-height: clamp(43px, 4vw, 67px);
   letter-spacing: 0em;
   text-align: left;
 }
@@ -233,6 +233,21 @@ section .content {
   /* height: 100%; */
   z-index: 0;
 }
+section .wrapper::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    #f4f6f9 0%,
+    rgba(241, 242, 250, 0) 2.8%,
+    rgba(241, 242, 250, 0) 89.35%,
+    #f4f6f9 99.07%
+  );
+}
 section .content .section-title {
   margin-bottom: clamp(24px, 1.5vw, 30px);
 }
@@ -303,6 +318,10 @@ section .content .section-title {
   width: 100%;
   /* height: clamp(289px, 20vw, 357px); */
 }
+.card-wrapper.visible {
+  transform: none;
+}
+
 .card-wrapper {
   position: relative;
   /* width: clamp(230px, 19.5vw, 407px); */
@@ -311,8 +330,9 @@ section .content .section-title {
     clamp(42px, 2.9vw, 59px);
   background: linear-gradient(225deg, #ffffff 0%, #e5e7ee 100%);
   border-image-source: linear-gradient(225deg, #e9ecf7 0%, #ffffff 100%);
+  transform: translateX(-100vw);
   border-radius: 28px;
-  transition: all 0.3s;
+  transition: all 0.3s, transform 2s, background 2s;
 }
 .card-wrapper::after {
   content: "";
@@ -337,9 +357,13 @@ section .content .section-title {
   right: 32px;
   top: 42px;
   height: 100%;
-  background: rgba(213, 220, 232, 0.5);
   filter: blur(40px);
   border-radius: 28.0875px;
+  transition: all 1s;
+  transition-delay: 3s;
+}
+.card-wrapper.visible::before {
+  background: rgba(213, 220, 232, 0.56);
 }
 .card-wrapper .color {
   position: relative;
@@ -417,7 +441,7 @@ section .content .section-title {
   bottom: 0;
   border-radius: 10px;
   padding: 2px;
-  background: linear-gradient(225deg, #ffffff 0%, #cccdd1 100%);
+  background: linear-gradient(320deg, #ffffff 0%, #dfe0e2 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
@@ -1053,6 +1077,7 @@ footer .contact-info div:not(:last-child) {
   .video {
     width: unset;
   }
+
   #video-in-first-section {
     transform: translate(-30%, 0);
   }
@@ -1643,6 +1668,16 @@ select {
 
 .select-selected.select-arrow-active::after {
   top: 60%;
+}
+.date-select:hover .select-selected {
+  color: var(--text-main);
+}
+.date-select:hover .select-selected::after {
+  border-color: var(--text-main);
+}
+.date-select .select-selected:after {
+  padding: 2px;
+  border-color: var(--text-secondary);
 }
 .date-select .select-selected.select-arrow-active::after {
   top: 60%;
