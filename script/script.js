@@ -9,6 +9,7 @@ const setAllObservers = () => {
   const blockMainText = document.querySelectorAll(".sub-text");
   const videoBlock = document.querySelectorAll("video");
   const map = document.querySelector(".map-wrapper");
+  const cardArea = document.querySelector(".card-area");
 
   blockTitle.forEach((elem) => {
     setObserver(elem, observerCallback);
@@ -19,7 +20,11 @@ const setAllObservers = () => {
   videoBlock.forEach((elem) => {
     setObserver(elem, playVideo, { threshold: 0.75 });
   });
+  // cardArea.forEach((elem) => {
+  //   setObserver(elem, observerCallback);
+  // });
   setObserver(map, marketOnMap, { threshold: 0.75 });
+  setObserver(cardArea, setCardObserver);
 };
 
 const setObserver = (elem, callback, options = null) => {
@@ -68,6 +73,21 @@ const marketOnMap = (entries) => {
     }
   });
 };
+
+const setCardObserver = (entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const cards = document.querySelectorAll(".card-wrapper");
+      setMapShadow();
+      for (let i = 0; i < cards.length; i++) {
+        setTimeout(function () {
+          cards[cards.length - 1 - i].classList.add("visible");
+        }, i * 500);
+      }
+    }
+  });
+};
+
 const setEventHandlers = () => {
   burgerMenuHandler();
   btnHoverEffect();
@@ -94,7 +114,7 @@ const burgerMenuHandler = () => {
         portal.classList.remove("active");
         menu.classList.remove("active");
       });
-    }),
+    })
   );
 };
 
@@ -117,22 +137,22 @@ const setMapShadow = () => {
 
   shadowFilter.querySelector("feOffset").attributes.dy.nodeValue = 0;
   shadowFilter.querySelector(
-    "feGaussianBlur",
+    "feGaussianBlur"
   ).attributes.stdDeviation.nodeValue = 0;
 
   for (let i = 0; i < 25; i++) {
     setTimeout(function () {
       shadowFilter.querySelector("feOffset").attributes.dy.nodeValue =
         new Number(
-          shadowFilter.querySelector("feOffset").attributes.dy.nodeValue,
+          shadowFilter.querySelector("feOffset").attributes.dy.nodeValue
         ) + 0.1;
       shadowFilter.querySelector(
-        "feGaussianBlur",
+        "feGaussianBlur"
       ).attributes.stdDeviation.nodeValue =
         new Number(
           shadowFilter.querySelector(
-            "feGaussianBlur",
-          ).attributes.stdDeviation.nodeValue,
+            "feGaussianBlur"
+          ).attributes.stdDeviation.nodeValue
         ) + 0.1;
     }, i * 100);
   }
@@ -304,9 +324,10 @@ const loginEventHandler = () => {
 const setScrollEvent = () => {
   // console.log("scroll");
   // let counter = 0;
-  // window.addEventListener("scroll", function (e) {
-  //   counter -= 50;
+  // window.addEventListener("wheel", function (e) {
+  //   counter += e.deltaY;
   //   console.log(e);
-  //   document.querySelector("body").style.transform = `translateY(${counter}px)`;
+  //   console.log(document.body.offsetTop);
+  //   // document.querySelector("body").style.transform = `translateY(${counter}px)`;
   // });
 };
